@@ -48,15 +48,15 @@ def clear():
 
 def Add():
     while True:
-        field_name=input("Field Name: ")
+        field_name=input("Field Name: ").strip()
         if field_name=="" or field_name.isspace(): continue
         else: break
     while True:
-        user_name=input("User Name: ")
+        user_name=input("User Name: ").strip()
         if user_name=="" or user_name.isspace(): continue
         else: break
     while True:
-        pwd=input("Password: ")
+        pwd=input("Password: ").strip()
         if pwd=="" or pwd.isspace(): continue
         else: break
     content=(user_name,pwd)
@@ -71,7 +71,10 @@ def Remove():
         print("Not valid key name")
 
 def Search():
-    src=input("Key name or username (* to show all): ").strip()
+    while True:
+        src=input("Key name or username (* to show all): ").strip()
+        if src=="" or src.isspace(): continue
+        else: break
     found=False
     if src=="*":
         for field in keys:
